@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP Test</title>
+</head>
+<body>
+    <p id='content'> hello world</p>
+    <script>
+        function myCallBack(res){
+            if(!res){
+                return;
+            }
+
+            setTimeout(() => {
+             const ele = document.getElementById('content');
+             ele.innerHTML = res.data
+            }, 2000);
+        }
+    </script>
+    <script src='http://localhost:3001?callback=myCallBack'></script>
+</body>
+</html>
